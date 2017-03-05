@@ -1,0 +1,132 @@
+	
+段名 说明
+
+1 .text
+
+存放程序运行代码（机器码）
+
+2 .data
+
+存放了经过初始化的全局变量和静态变量
+
+3 .bss
+
+保存了那些用到但未被初始化的数据
+
+4 .rodata
+
+只读数据段
+
+5 .shstrtab
+
+段名字符串表
+
+6 .symtab
+
+保存了连接时所需的符号信息
+
+7 .strtab
+
+保存了.symtab所需的符号信息。
+
+8 .init
+
+C++编译器生成的用来实现全局构造；该段自动产生名为init的函数，该函数早于main执行
+
+9 .fini
+
+同.init都为实现全局构造；该段自动产生名为fini的函数，该函数在main函数结束之后执行
+
+10 .comment
+
+包含编译器版本信息，不重要
+
+11 .debug
+
+保存调试相关信息，如.debug_info  .debug_line等
+
+12 .dynstr
+
+保存动态链接符号字符串名
+
+13 .dynsym
+
+保存动态链接符号
+
+14 .fini_array
+
+保存程序或共享对象退出时的退出函数地址
+
+15 .hash
+
+哈希表
+
+16 .init_array
+
+保存程序或共享对象加载时的初始化函数指针
+
+17 .interp
+
+动态链接库路径
+
+18 .line
+
+调试时行号信息
+
+19 .note
+
+额外信息，与平台相关
+
+20 .preinit_array
+
+同init_array  但早于init_array执行
+
+21 .tbss
+
+线程的未初始化数据
+
+22 .tdata
+
+线程的初始化数据
+
+23 .ctors
+
+保存全局构造函数指针
+
+24 .data.rel.ro
+
+类似.rodata
+
+25 .dtors
+
+保存了全局析构函数指针
+
+26 eh_frame
+
+C++异常处理内容
+
+27 .eh_frame_hdr
+
+同eh_frame
+
+28 .got.plt
+
+保存动态链接的延迟绑定相关信息
+
+29 .jcr
+
+Java语言相关信息
+
+30 .note.ABI-tag
+
+保存程序ABI信息
+
+31 .stab
+
+调试信息
+
+32 .stabstr
+
+.stab中包含的字符串信息
+
+	 
