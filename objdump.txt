@@ -1,0 +1,19 @@
+1.生成bms代码中的rom.s文件的方法
+ 	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -dl out/rom.axf >test.s
+ 	其中，-d表示反汇编含代码的段，-l表示列出源文件和汇编代码之间的对应关系
+
+2.去掉代码联系的命令
+	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -d out/rom.bin >test.s
+	此时，生成的反汇编代码，就不包含与源文件的对应关系。
+
+3.反汇编所有的段，不仅仅是含代码的段
+	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -D out/rom.axf >test1.s
+
+4.将源码和汇编一起
+	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -S out/rom.axf >test2.s
+	此时，生成的反汇编代码，会将include的文件展开，会将源c代码一起。
+
+5.不列出汇编指令码，注意是指令码，不是指令
+	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -D --no-show-raw-insn out/rom.axf >test3.s
+	此时，--no-show-raw-insn表示不列出汇编的指令码，-D反汇编所有的代码段。
+
