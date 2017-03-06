@@ -17,3 +17,32 @@
 	build/linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-objdump -D --no-show-raw-insn out/rom.axf >test3.s
 	此时，--no-show-raw-insn表示不列出汇编的指令码，-D反汇编所有的代码段。
 
+================================objdump所有的命令==================================================================
+
+选项 									Desc
+-a --archive-header 				  ||有库文件时，显示库文件的头信息。即显示该库文件由那些什么格式的目标文件组成
+-b bfdname --target=bfdname 		  ||指定目标文件的格式
+-C --demangle[=style] 				  ||将低级符号名解析成用户级符号名。这样可以使C++函数具有可读性。
+									  ||例如00000000 T _ZN6MyTest3sumEii被解析成00000000 T MyTest::sum(int, int)。这样一来这样的符号便具有可读性
+-g --debugging 						  ||显示目标文件的调试信息
+-d --disassemble 					  ||反汇编含代码的段
+-D --disassemble-all 				  ||反汇编所有的段
+-EB  -EL --endian={ big|little }	  ||显示目标文件的头信息
+-h --section-headers --headers 		  ||显示目标文件的section headers。注意，在链接的过程中，会传递-Ttext，-Tdata，-Tbss选项给链接器，
+									  ||以指定text，data，bss的具体地址。特别是在嵌入式系统开发过程中，常常需要指定这些地址。
+-i --info							  ||显示支持的bfdname和machine。其中bfdname可以用作-b bfdname，machine可用于-m machine
+-l -line-numbers					  ||配合-d，-D或-r选项，列出源文件和汇编代码之间的对应关系
+-m machine --architecture=machine     ||指定目标文件的architecture
+-p --private-headers 				  ||显示属于该目标文件格式特有的一些信息，如： vector.o:     file format elf32-m68hc12 
+									  ||private flags = 2:[abi=16-bit int, 64-bit double, cpu=HC12] [memory=flat]
+-r --reloc 							  ||显示relocation entries。如源文件为 int abc(int a, int b); int sum(int a, int b) { return abc(a,b); } 
+									  ||relocation entries，便会发现有一个“_abc”的entry。
+-R --dynamic-reloc 					  ||查看文件的dynamic relocation entries。
+-s --full-contents 					  ||查看section的全部内容
+-S --source 						  ||反汇编时，将source code和汇编代码对应出来 
+--show-raw-insn 					  ||反汇编时，以16进制格式列出具体指令码
+--no-show-raw-insn 					  ||反汇编时，不列出具体指令码
+-t --syms 							  ||列出symbol table entries
+-T --dynamic-syms 					  ||列出dynamic symbol table entries。
+-V --version 						  ||列出objdump的版本号
+-x --all-headers 					  ||列出所有的头信息header information，该选项等同于-a –f –h –p –r –t
